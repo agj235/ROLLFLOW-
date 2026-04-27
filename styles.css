@@ -215,3 +215,6 @@ button {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
+input, textarea, button {
+  font-size: 16px;
+}
