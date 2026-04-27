@@ -51,13 +51,14 @@ function render() {
   const container = document.getElementById("entries");
   container.innerHTML = "";
 
-  entries.forEach(e => {
+  entries.forEach((e, index) => {
     const div = document.createElement("div");
     div.className = "entry";
 
     div.innerHTML = `
       <div class="date">${new Date(e.date).toLocaleDateString()}</div>
       <div>${e.note}</div>
+      <button class="deleteBtn" onclick="deleteEntry(${index})">Delete</button>
     `;
 
     container.appendChild(div);
@@ -66,6 +67,11 @@ function render() {
   updateStats();
   renderProgress();
   renderInsights();
+}
+function deleteEntry(index) {
+  entries.splice(index, 1);
+  localStorage.setItem("bjjEntries", JSON.stringify(entries));
+  render();
 }
 
 /* STATS */
