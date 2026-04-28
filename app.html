@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>ROLLFLOW ◯</title>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="manifest" href="manifest.json">
+  <meta name="theme-color" content="#020617">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <link rel="apple-touch-icon" href="icon-180.png">
+</head>
+
+<div id="splash">
+  <div class="splashLogo">
+    ROLLFLOW <span class="symbol">◯</span>
+  </div>
+  <div class="tag">by Pupusas Power</div>
+</div>
+
+<body>
+
+  <!-- HEADER -->
+<h1 class="appLogo">
+  ROLLFLOW <span class="symbol">◯</span>
+</h1>
+
+  <!-- DASHBOARD VIEW -->
+  <div id="homeView" class="view">
+
+    <div class="card header">
+      <div>Current Belt: <span id="beltLabel">White</span></div>
+    </div>
+
+    <div class="card statsGrid">
+      <div class="stat">
+        <div id="totalSessions">0</div>
+        <div class="label">Sessions</div>
+      </div>
+
+      <div class="stat">
+        <div id="streak">0</div>
+        <div class="label">Streak</div>
+      </div>
+
+      <div class="stat">
+        <div id="lastTrain">-</div>
+        <div class="label">Last</div>
+      </div>
+    </div>
+
+    <div class="card">
+      <textarea id="noteInput" placeholder="What did you work on today?"></textarea>
+      <div class="tagBox">
+        <div id="tagChips"></div>
+          <input id="tagInput" placeholder="Add tags..." />
+        </div>
+      <button onclick="addEntry()">+ Log Training</button>
+    </div>
+
+    <div class="card">
+      <h3>Recent Rolls</h3>
+      <div id="entries"></div>
+    </div>
+
+  </div>
+
+  <!-- SETTINGS VIEW -->
+  <div id="settingsView" class="view hidden">
+    <div class="card">
+      <h3>Settings</h3>
+
+      <label>🥋 Belt Level</label>
+      <div class="beltButtons">
+        <button onclick="setBelt('white')">White</button>
+        <button onclick="setBelt('blue')">Blue</button>
+        <button onclick="setBelt('purple')">Purple</button>
+        <button onclick="setBelt('brown')">Brown</button>
+        <button onclick="setBelt('black')">Black</button>
+      </div>
+    </div>
+  </div>
+
+  <!-- PROGRESS VIEW -->
+  <div id="progressView" class="view hidden">
+
+    <div class="card">
+      <h3>📈 Monthly Progress</h3>
+      <div id="monthBars" class="bars"></div>
+    </div>
+
+    <div class="card">
+      <h3>🧠 Insights</h3>
+      <div id="insights"></div>
+    </div>
+
+  </div>
+  <!-- BOTTOM NAV -->
+  <div class="nav">
+  <button onclick="showView('home')">Home</button>
+  <button onclick="showView('progress')">Progress</button>
+  <button onclick="showView('settings')">Settings</button>
+</div>
+
+  <script src="app.js"></script>
+</body>
+</html>
