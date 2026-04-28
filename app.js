@@ -58,13 +58,16 @@ function addEntry() {
 
   const tags = [...currentTags];
 
-  const newEntry = {
+  let newEntry = {
     date: new Date().toISOString(),
     note,
     tags
   };
 
   if (editIndex !== null) {
+    // 🔥 KEEP ORIGINAL DATE
+    newEntry.date = entries[editIndex].date;
+
     entries[editIndex] = newEntry;
     editIndex = null;
   } else {
@@ -316,6 +319,22 @@ function enableSwipe() {
     });
   });
 }
+
+document.getElementById("tagInput").addEventListener("keydown", function (e) {
+  if (e.key === "Enter" || e.key === ",") {
+    e.preventDefault();
+
+    const value = this.value.trim().toLowerCase();
+    if (!value) return;
+
+    if (!currentTags.includes(value)) {
+      currentTags.push(value);
+    }
+
+    this.value = "";
+    renderChips();
+  }
+});
 
 /* INIT */
 setTimeout(() => {
