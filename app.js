@@ -155,8 +155,10 @@ function render() {
 
           <div class="entryFooter">
             <div class="entryActions">
-              <button class="editBtn" onclick="editEntry(${index})">Edit</button>
-              <button class="deleteBtn" onclick="deleteEntry(${index})">Delete</button>
+               <button class="editBtn" onclick="event.stopPropagation(); editEntry(${index})">Edit</button>
+               <button class="deleteBtn" onclick="event.stopPropagation(); deleteEntry(${index})">
+    Delete
+  </button>
             </div>
           </div>
 
