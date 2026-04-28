@@ -121,16 +121,18 @@ button {
 /* ENTRY ACTIONS (EDIT / DELETE) */
 .entryFooter {
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between; /* 🔥 THIS is the key */
+  align-items: center;
   margin-top: 8px;
 }
 
 .entryActions {
   display: flex;
-  gap: 12px;
-  align-items: center;
+  width: 100%;
+  justify-content: space-between; /* spreads them apart */
 }
 
+/* BUTTONS */
 .editBtn,
 .deleteBtn {
   width: auto;
