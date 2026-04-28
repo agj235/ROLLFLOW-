@@ -59,10 +59,11 @@ function addEntry() {
   const tags = [...currentTags];
 
   let newEntry = {
-    date: new Date().toISOString(),
-    note,
-    tags
-  };
+  date: new Date().toISOString(),
+  note,
+  tags,
+  belt: belt // 👈 store current belt at time of entry
+};
 
   if (editIndex !== null) {
     // 🔥 KEEP ORIGINAL DATE
@@ -143,6 +144,9 @@ function render() {
 
           <div class="date">${new Date(e.date).toLocaleDateString()}</div>
           <div>${e.note}</div>
+          <div class="beltTag">
+  <span class="beltDot" style="background:${getBeltColor(e.belt)}"></span>
+</div>
 
           ${
             e.tags?.length
@@ -277,6 +281,17 @@ function renderTagAnalytics() {
   });
 
   container.innerHTML += html;
+}
+
+function getBeltColor(belt) {
+  const colors = {
+    white: "#e5e7eb",
+    blue: "#3b82f6",
+    purple: "#a855f7",
+    brown: "#a16207",
+    black: "#000000"
+  };
+  return colors[belt] || "#e5e7eb";
 }
 
 /* SWIPE */
