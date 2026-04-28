@@ -1,7 +1,7 @@
 {
-  "name": "RollFlow",
-  "short_name": "RollFlow",
-  "start_url": ".",
+  "name": "RollFlow ◯",
+  "short_name": "RollFlow ◯",
+  "start_url": "app.html",
   "display": "standalone",
   "background_color": "#020617",
   "theme_color": "#020617",
